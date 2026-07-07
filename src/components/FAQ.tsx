@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FAQ_ITEMS } from '../data';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
 export default function FAQ() {
@@ -24,8 +25,8 @@ export default function FAQ() {
               {/* Main Image */}
               <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] relative bg-slate-200">
                 <img 
-                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&h=1000&q=80" 
-                  alt="Mother feeding child Ghanaian community care" 
+                  src="/assets/faq-child-letter.jpeg" 
+                  alt="Smiling Ghanaian child holding letters from a sponsor" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -40,7 +41,7 @@ export default function FAQ() {
                     <circle cx="50" cy="50" r="37" fill="none" />
                     <text className="text-[9.5px] font-bold fill-[#0038a8] tracking-[0.16em] uppercase">
                       <textPath href="#circlePath">
-                        Contact Us • Contact Us • Contact Us • 
+                        Contact Us - Contact Us - Contact Us - 
                       </textPath>
                     </text>
                   </svg>
@@ -58,10 +59,9 @@ export default function FAQ() {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Pill Tag */}
-            <div className="inline-flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-gray-100 shadow-sm text-xs text-gray-600 font-medium w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0038a8]" />
+            <SectionBadge icon={<span className="w-1.5 h-1.5 rounded-full bg-[#0038a8]" />}>
               Frequently Asked Questions
-            </div>
+            </SectionBadge>
 
             {/* Title */}
             <div className="block">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Play, RotateCcw, Volume2, Maximize, Pause, Info } from 'lucide-react';
 import { motion } from 'motion/react';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
 export default function VideoSection() {
@@ -15,8 +16,8 @@ export default function VideoSection() {
         
         {/* Top Split Headers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-          <div>
-            <span className="text-xs font-bold text-yellow-400 uppercase tracking-widest block mb-1">Our Video Story</span>
+          <div className="flex flex-col items-start gap-4">
+            <SectionBadge tone="dark">Our Video Story</SectionBadge>
             <TitleReveal className="font-title font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-snug">
               Committed to Transforming Lives and Empowering Futures.
             </TitleReveal>

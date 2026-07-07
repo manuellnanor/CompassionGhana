@@ -438,7 +438,7 @@ export default function DonationModal({ isOpen, onClose, selectedCauseId }: Dona
 
                     <div className="pt-2 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                       <div className="flex justify-between text-xs text-gray-500 mb-1">
-                        <span>Intvention:</span>
+                        <span>Intervention:</span>
                         <span className="font-semibold text-gray-800">{selectedCauseObj.title}</span>
                       </div>
                       <div className="flex justify-between text-sm font-bold text-gray-800 border-t border-gray-200/60 pt-1.5 mt-1.5">

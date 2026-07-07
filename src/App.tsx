@@ -1,12 +1,4 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+"use client";
 
 import { useState } from 'react';
 import Header from './components/Header';
@@ -20,14 +12,14 @@ import Partners from './components/Partners';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import DonationModal from './components/DonationModal';
+import ConsentBanner from './components/ConsentBanner';
 
 export default function App() {
   const [isDonateOpen, setIsDonateOpen] = useState(false);
   const [selectedCauseId, setSelectedCauseId] = useState<string | undefined>(undefined);
 
   const handleOpenDonate = () => {
-    setSelectedCauseId(undefined);
-    setIsDonateOpen(true);
+    window.open('https://www.compassion.com/sponsor-a-child/', '_blank', 'noopener,noreferrer');
   };
 
   const handleOpenDonateWithCause = (causeId: string) => {
@@ -81,7 +73,7 @@ export default function App() {
         onClose={handleCloseDonate} 
         selectedCauseId={selectedCauseId} 
       />
+      <ConsentBanner />
     </div>
   );
 }
-

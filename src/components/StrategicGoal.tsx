@@ -1,6 +1,7 @@
 import { Target, Compass, Award, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 import { STRATEGIC_GOALS } from '../data';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
 export default function StrategicGoal() {
@@ -15,10 +16,9 @@ export default function StrategicGoal() {
         
         {/* Header Block */}
         <div className="max-w-3xl mx-auto mb-16 flex flex-col items-center text-center gap-4">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-            <Target className="w-4 h-4" />
+          <SectionBadge icon={<Target className="w-4 h-4" />}>
             Strategic Target 2030
-          </div>
+          </SectionBadge>
           
           <TitleReveal className="font-title font-black text-3xl sm:text-4xl md:text-5xl text-blue-950 tracking-tight leading-tight text-center">
             Strategic Goal

@@ -1,9 +1,11 @@
 import { PARTNERS } from '../data';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
-import awanaLogo from '@/assets/sponsor-awana.png';
-import chalmersLogo from '@/assets/sponsor-chalmers.png';
-import hopespringLogo from '@/assets/sponsor-hopespring.png';
-import sanctuaryLogo from '@/assets/sponsor-sanctuary.png';
+
+const awanaLogo = '/assets/sponsor-awana.png';
+const chalmersLogo = '/assets/sponsor-chalmers.png';
+const hopespringLogo = '/assets/sponsor-hopespring.png';
+const sanctuaryLogo = '/assets/sponsor-sanctuary.png';
 
 export default function Partners() {
   const getPartnerLogo = (id: string) => {
@@ -33,16 +35,17 @@ export default function Partners() {
 
   return (
     <section id="partners" className="py-14 bg-white border-t border-b border-gray-100 font-sans relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative">
         {/* Simple Label */}
-        <div className="text-center mb-8">
-          <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest block mb-2">
+        <div className="text-center mb-8 flex flex-col items-center gap-6">
+          <SectionBadge>
             Partnership & Stewardship
-          </span>
-          <TitleReveal as="h3" className="font-title font-extrabold text-[#0038a8] text-xl tracking-tight">
-            Our Key Partners
-          </TitleReveal>
+          </SectionBadge>
+          <div className="block w-full">
+            <TitleReveal as="h3" className="font-title font-extrabold text-[#0038a8] text-xl tracking-tight">
+              Our Key Partners
+            </TitleReveal>
+          </div>
           <div className="h-0.5 w-10 bg-yellow-400 mx-auto mt-2 rounded-full" />
         </div>
 

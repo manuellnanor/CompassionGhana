@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import hero1 from '@/assets/hero-1.webp';
-import hero2 from '@/assets/hero-2.jpeg';
-import hero3 from '@/assets/hero-3.webp';
+
+const hero1 = '/assets/hero-1.webp';
+const hero2 = '/assets/hero-2.jpeg';
+const hero3 = '/assets/hero-3.webp';
 
 interface HeroProps {
   onOpenDonate: () => void;
@@ -163,7 +164,7 @@ export default function Hero({ onOpenDonate }: HeroProps) {
             onClick={onOpenDonate}
             className="w-full sm:w-auto min-h-12 bg-[#FFD100] hover:bg-[#FFE359] text-[#0038a8] font-display font-extrabold text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-yellow-500/10 transition-all transform hover:scale-102 cursor-pointer"
           >
-            Support Our Mission
+            Sponsor a Child
             <ArrowRight className="w-4 h-4" />
           </button>
 

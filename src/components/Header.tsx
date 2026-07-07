@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Phone, Mail, Facebook, Twitter, Instagram, Heart, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import compassionLogo from '@/assets/logo-header.png';
+
+const compassionLogo = '/assets/logo-header.png';
 
 interface HeaderProps {
   onOpenDonate: () => void;
 }
 
 export default function Header({ onOpenDonate }: HeaderProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -20,13 +25,19 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(!isHomePage || window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
+    if (!isHomePage) {
+      setActiveSection(pathname === '/about' ? 'about-us' : pathname === '/contact' ? 'footer' : 'home');
+      return;
+    }
+
     const handleScrollSpy = () => {
       const sections = ['home', 'about-us', 'interventions', 'faq', 'footer'];
       
@@ -51,10 +62,28 @@ export default function Header({ onOpenDonate }: HeaderProps) {
     window.addEventListener('scroll', handleScrollSpy);
     handleScrollSpy();
     return () => window.removeEventListener('scroll', handleScrollSpy);
-  }, []);
+  }, [isHomePage, pathname]);
+
+  const goHome = () => {
+    setIsMobileMenuOpen(false);
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    router.push('/');
+  };
+
+  const goToRoute = (href: string) => {
+    setIsMobileMenuOpen(false);
+    router.push(href);
+  };
 
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
+    if (!isHomePage) {
+      router.push(`/#${id}`);
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -121,7 +150,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
           {/* Logo and Ghana flag */}
           <button 
             id="logo-home-btn"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+            onClick={goHome} 
             className="flex items-center gap-3 text-left focus:outline-none group cursor-pointer"
             aria-label="Compassion International Ghana home"
           >
@@ -150,7 +179,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   <div className="bg-[#EF3340] h-1/3"></div>
                   <div className="bg-[#FFD100] h-1/3 flex items-center justify-center relative">
                     {/* Small star symbol */}
-                    <span className="absolute text-[6px] text-black leading-none top-[-2px]">★</span>
+                    <span className="absolute text-[6px] text-black leading-none top-[-2px]">*</span>
                   </div>
                   <div className="bg-[#009739] h-1/3"></div>
                 </div>
@@ -161,7 +190,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
           {/* Desktop Navigation links */}
           <div className="hidden md:flex items-center gap-1.5 font-montserrat font-medium text-sm text-white/90">
-            <button id="nav-home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={getNavItemClass('home')}>
+            <button id="nav-home" onClick={goHome} className={getNavItemClass('home')}>
               Home
             </button>
 
@@ -171,7 +200,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               onMouseEnter={() => setActiveDropdown('about')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button id="nav-about" onClick={() => scrollToSection('about-us')} className={getNavItemClass('about', true)}>
+              <button id="nav-about" onClick={() => goToRoute('/about')} className={getNavItemClass('about', true)}>
                 About Us <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
               </button>
               
@@ -185,13 +214,13 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                     className="absolute left-0 mt-3 w-60 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
                   >
                     <button 
-                      onClick={() => { scrollToSection('about-us'); setActiveDropdown(null); }}
+                      onClick={() => { goToRoute('/about'); setActiveDropdown(null); }}
                       className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
                     >
                       Who We Are
                     </button>
                     <button 
-                      onClick={() => { scrollToSection('about-us'); setActiveDropdown(null); }}
+                      onClick={() => { goToRoute('/about#leadership'); setActiveDropdown(null); }}
                       className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
                     >
                       Leadership
@@ -285,7 +314,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               </AnimatePresence>
             </div>
 
-            <button id="nav-contact" onClick={() => scrollToSection('footer')} className={getNavItemClass('footer')}>
+            <button id="nav-contact" onClick={() => goToRoute('/contact')} className={getNavItemClass('footer')}>
               Contact
             </button>
           </div>
@@ -298,7 +327,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               className="bg-[#00A896] hover:bg-[#02C39A] text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer hover:scale-102"
             >
               <Heart className="w-4 h-4 fill-white" />
-              Donate Now
+              Sponsor a Child
             </button>
           </div>
 
@@ -324,7 +353,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               className="md:hidden bg-[#002d86] border-t border-white/10 overflow-hidden text-white w-full absolute top-full left-0 shadow-xl"
             >
               <div className="px-6 py-5 flex flex-col gap-4 font-montserrat font-medium text-sm">
-                <button id="mobile-nav-home" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setIsMobileMenuOpen(false); }} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">Home</button>
+                <button id="mobile-nav-home" onClick={goHome} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">Home</button>
                 
                 {/* Mobile About Us Submenu */}
                 <div>
@@ -335,8 +364,8 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   <AnimatePresence>
                     {mobileAboutOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
-                        <button onClick={() => { scrollToSection('about-us'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Who We Are</button>
-                        <button onClick={() => { scrollToSection('about-us'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Leadership</button>
+                        <button onClick={() => goToRoute('/about')} className="text-left text-sm py-1 hover:text-yellow-400">Who We Are</button>
+                        <button onClick={() => goToRoute('/about#leadership')} className="text-left text-sm py-1 hover:text-yellow-400">Leadership</button>
                         <button onClick={() => { scrollToSection('partners'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Church Partners</button>
                       </motion.div>
                     )}
@@ -376,14 +405,14 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   </AnimatePresence>
                 </div>
 
-                <button id="mobile-nav-contact" onClick={() => { scrollToSection('footer'); setIsMobileMenuOpen(false); }} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">Contact</button>
+                <button id="mobile-nav-contact" onClick={() => goToRoute('/contact')} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">Contact</button>
                 
                 <button
                   id="mobile-nav-donate-btn"
                   onClick={() => { setIsMobileMenuOpen(false); onOpenDonate(); }}
                   className="w-full bg-[#00A896] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md mt-2 cursor-pointer"
                 >
-                  <Heart className="w-4 h-4 fill-white" /> Donate Now
+                  <Heart className="w-4 h-4 fill-white" /> Sponsor a Child
                 </button>
               </div>
             </motion.div>

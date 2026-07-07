@@ -25,15 +25,12 @@ export default function TitleReveal({
     const tween = gsap.fromTo(
       headingRef.current,
       {
-        scale: 0.92,
-        y: 24,
         opacity: 0,
-        transformOrigin: "50% 50%",
+        clipPath: "inset(0 0 100% 0)",
       },
       {
-        scale: 1,
-        y: 0,
         opacity: 1,
+        clipPath: "inset(0 0 0% 0)",
         duration: 0.85,
         ease: "power3.out",
         scrollTrigger: {
@@ -55,7 +52,7 @@ export default function TitleReveal({
       ref={headingRef}
       id={id}
       className={className}
-      style={{ display: "inline-block", willChange: "transform, opacity" }}
+      style={{ display: "block", willChange: "clip-path, opacity" }}
     >
       {children}
     </Component>

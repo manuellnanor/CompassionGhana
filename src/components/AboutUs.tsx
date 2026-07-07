@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, BookOpen, Heart, ShieldAlert, Award, Sparkles, X } from 'lucide-react';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
-import aboutUs1 from '@/assets/about-us-1.jpg';
-import aboutUs2 from '@/assets/about-us-2.png';
+
+const aboutUs1 = '/assets/about-us-1.jpg';
+const aboutUs2 = '/assets/about-us-2.png';
 
 export default function AboutUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,8 +23,8 @@ export default function AboutUs() {
           
           {/* Left Column */}
           <div className="space-y-6">
-            <div className="text-left">
-              <span className="text-xs font-bold text-[#FFD100] uppercase tracking-widest block mb-1">About Us</span>
+            <div className="text-left flex flex-col items-start gap-4">
+              <SectionBadge tone="dark">About Us</SectionBadge>
               <TitleReveal className="font-title font-extrabold text-3xl sm:text-4xl md:text-[2.75rem] leading-tight tracking-tight text-white">
                 Committed to Transforming Lives and Empowering Futures.
               </TitleReveal>

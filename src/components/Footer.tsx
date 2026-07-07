@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronUp, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
-import compassionLogo from '@/assets/logo-header.png';
+
+const compassionLogo = '/assets/logo-header.png';
 
 interface FooterProps {
   onOpenDonate?: () => void;
@@ -16,7 +17,13 @@ export default function Footer({ onOpenDonate }: FooterProps) {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+      return;
     }
+    window.location.href = `/#${id}`;
+  };
+
+  const goToPage = (href: string) => {
+    window.location.href = href;
   };
 
   return (
@@ -52,7 +59,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
               Releasing children from poverty in Jesus' name. Your compassion changes everything.
             </p>
 
-            {/* Donate Button */}
+            {/* Sponsorship Button */}
             {onOpenDonate && (
               <button
                 id="footer-donate-btn"
@@ -60,7 +67,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
                 className="bg-[#00A896] hover:bg-[#02C39A] text-white px-5 py-2.5 rounded-full font-display font-bold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 w-fit"
               >
                 <Heart className="w-3.5 h-3.5 fill-white" />
-                Donate Now
+                Sponsor a Child
               </button>
             )}
 
@@ -108,12 +115,12 @@ export default function Footer({ onOpenDonate }: FooterProps) {
             
             <ul className="space-y-3 text-xs text-gray-300 font-medium">
               <li>
-                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
+                <button onClick={() => goToPage('/')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('about-us')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
+                <button onClick={() => goToPage('/about')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
                   About Us
                 </button>
               </li>
@@ -125,6 +132,11 @@ export default function Footer({ onOpenDonate }: FooterProps) {
               <li>
                 <button onClick={() => scrollToSection('faq')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
                   Resources & FAQ
+                </button>
+              </li>
+              <li>
+                <button onClick={() => goToPage('/contact')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
+                  Contact Us
                 </button>
               </li>
             </ul>

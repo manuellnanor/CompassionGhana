@@ -72,21 +72,21 @@ export const INTERVENTIONS: Intervention[] = [
 export const STRATEGIC_GOALS: StrategicGoal[] = [
   {
     id: 'youth',
-    title: 'Fulfilled Christian Youth',
-    description: 'Empowered as active agents of transformative change in local, regional, and global contexts through sound biblical mentoring and leadership development.',
-    image: 'https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?auto=format&fit=crop&w=600&q=80'
+    title: 'Youth as Change Leaders',
+    description: 'Fulfilled Christian Youth who are empowered and act as agents of change in local, regional, and global contexts.',
+    image: '/assets/strategic-goal-youth.webp'
   },
   {
     id: 'families',
-    title: 'Thriving and Resilient Families',
-    description: 'Collaborating actively with local church partners, school systems, and communities to support children in achieving their ultimate God-given potential.',
-    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80'
+    title: 'Families That Nurture Potential',
+    description: 'Thriving and Resilient Families that collaborate with church partners, communities, and other stakeholders to enable youth to achieve their God-given potential.',
+    image: '/assets/strategic-goal-families.jpg'
   },
   {
     id: 'churches',
-    title: 'Resourceful Church Partners',
-    description: 'Delivering stellar, context-appropriate developmental interventions that enable children to break free from the shackles of generational poverty.',
-    image: 'https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?auto=format&fit=crop&w=600&q=80'
+    title: 'Churches Delivering Impact',
+    description: 'Resourceful Church Partners who deliver quality, timely, and context-appropriate interventions to help youth and children realize their God-given potential.',
+    image: '/assets/strategic-goal-churches.jpg'
   }
 ];
 

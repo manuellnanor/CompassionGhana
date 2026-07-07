@@ -1,6 +1,7 @@
 import { Heart, User, Home, BookOpen, ShieldCheck, Cross } from 'lucide-react';
 import { motion } from 'motion/react';
 import { FOUNDATIONAL_CHOICES } from '../data';
+import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
 export default function FoundationalChoices() {
@@ -100,14 +101,13 @@ export default function FoundationalChoices() {
         
         {/* Title & Description */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            className="text-xs uppercase tracking-widest text-[#0038a8] font-bold block"
           >
-            Our Core Principles
-          </motion.span>
+            <SectionBadge className="mx-auto">Our Foundation</SectionBadge>
+          </motion.div>
           
           <TitleReveal
             className="font-title font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#0038a8] tracking-tight"
