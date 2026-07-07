@@ -9,6 +9,7 @@ export default function VideoSection() {
 
   const videoId = "vNYxuqx9Xq0";
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0&start=5`;
+  const videoPoster = "/assets/hero-1.webp";
 
   return (
     <section id="video-section" className="py-20 bg-gradient-to-b from-blue-950 to-[#001733] text-white font-sans relative">
@@ -47,10 +48,9 @@ export default function VideoSection() {
               
               {/* Cover thumbnail picture */}
               <img
-                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                src={videoPoster}
                 alt="Compassion Ghana video thumbnail"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/50 pointer-events-none" />
 

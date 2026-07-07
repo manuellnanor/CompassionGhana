@@ -28,42 +28,42 @@ export const INTERVENTIONS: Intervention[] = [
   {
     id: 'education',
     title: 'Primary & Secondary Education',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/about-us-2.png',
     category: 'Education Support',
     description: 'Providing tuition, textbooks, uniforms, and learning resources to children across underserved Ghanaian communities.'
   },
   {
     id: 'health',
     title: 'Holistic Pediatric Healthcare',
-    image: 'https://images.unsplash.com/photo-1584515901357-32b706d34ee4?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/hero-3.webp',
     category: 'Health & Wellness',
     description: 'Regular health screenings, immunizations, essential dental checkups, and immediate medical treatment for emergency illnesses.'
   },
   {
     id: 'water-sanitation',
     title: 'Clean WASH Water Initiatives',
-    image: 'https://images.unsplash.com/photo-1541913079237-773172087a30?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/hero-2.jpeg',
     category: 'Clean Water',
     description: 'Installing borehole wells and modern handwashing facilities to secure pure drinking water and block sanitation-related illnesses.'
   },
   {
     id: 'nutrition',
     title: 'Nutritious Dietary Support',
-    image: 'https://images.unsplash.com/photo-1543083115-638c32cd3d58?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/difficult-decisions-delivery.jpg',
     category: 'Nutritional Care',
     description: 'Distributing balanced food packages and micro-nutrient rich meals to children showing signs of developmental malnutrition.'
   },
   {
     id: 'vocational',
     title: 'Youth Livelihood Training',
-    image: 'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/human-trafficking-labor.jpg',
     category: 'Skills Training',
     description: 'Equipping older youth with critical vocational skills like computing, tailoring, carpentry, and small enterprise management.'
   },
   {
     id: 'disaster',
     title: 'Emergency Community Relief',
-    image: 'https://images.unsplash.com/photo-1469571486040-af610d4d22b0?auto=format&fit=crop&w=800&q=80',
+    image: '/assets/sponsor-gift-family-store.jpg',
     category: 'Emergency Response',
     description: 'Providing fast response relief support, shelter aids, and emotional counseling to families struck by sudden climate floods.'
   }
@@ -128,7 +128,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Boy',
     region: 'Central Region',
     hobbies: ['Soccer', 'Drawing', 'Running'],
-    photo: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/strategic-goal-families.jpg',
     description: 'Kofi is a bright young boy who loves playing soccer with his neighborhood friends. He wants to be a high school teacher when he grows up.',
     birthday: 'October 14',
     isSponsored: false
@@ -140,7 +140,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Girl',
     region: 'Eastern Region',
     hobbies: ['Singing', 'Jump rope', 'Reading'],
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/strategic-goal-youth.webp',
     description: 'Ama is highly creative, with a beautiful singing voice. She attends her local Sunday school regularly and dreams of becoming a pediatrician.',
     birthday: 'June 22',
     isSponsored: false
@@ -152,7 +152,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Boy',
     region: 'Volta Region',
     hobbies: ['Storytelling', 'Drawing', 'Gardening'],
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/about-us-1.jpg',
     description: 'Kwabena is a quiet boy who is very curious about nature. He enjoys drawing plants and animals and loves helping his grandmother in the garden.',
     birthday: 'December 05',
     isSponsored: false
@@ -164,7 +164,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Girl',
     region: 'Central Region',
     hobbies: ['Dancing', 'Writing', 'Math games'],
-    photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/sponsor-gift-story-header.jpg',
     description: 'Abena is incredibly energetic and loves cultural dance. She excels in mathematics and wants to build houses as a civil engineer one day.',
     birthday: 'March 18',
     isSponsored: false
@@ -176,7 +176,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Boy',
     region: 'Ashanti Region',
     hobbies: ['Mathematics', 'Building blocks', 'Soccer'],
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/difficult-decisions-header.jpg',
     description: 'Yaw is a natural leader and team player. He is the top of his class in arithmetic and hopes to work in computing and technology.',
     birthday: 'August 30',
     isSponsored: false
@@ -188,7 +188,7 @@ export const CHILD_PROFILES: ChildProfile[] = [
     gender: 'Girl',
     region: 'Volta Region',
     hobbies: ['Crafts', 'Reading', 'Singing'],
-    photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&h=500&q=80',
+    photo: '/assets/human-trafficking-child.jpg',
     description: 'Akosua is soft-spoken but loves organizing craft games. She reads books voraciously and wants to write children stories in the future.',
     birthday: 'January 11',
     isSponsored: false

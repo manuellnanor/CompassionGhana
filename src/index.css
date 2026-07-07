@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", sans-serif;
-  --font-title: "Miller", "Georgia", "Lora", serif;
-  --font-hand: "Caveat", cursive;
-  --font-montserrat: "Montserrat", sans-serif;
+  --font-sans: "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Segoe UI", "Arial", sans-serif;
+  --font-title: "Georgia", "Times New Roman", serif;
+  --font-hand: "Comic Sans MS", cursive;
+  --font-montserrat: "Segoe UI", "Arial", sans-serif;
 }
 
 html,
@@ -20,7 +19,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   color: rgb(33, 41, 59);
   font-size: 16px;
