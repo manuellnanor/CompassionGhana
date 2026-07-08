@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { Heart, Sparkles, Droplets, BookOpen, Activity, GraduationCap, ShieldAlert, ShieldCheck } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { INTERVENTIONS } from '../data';
 import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
@@ -9,6 +9,8 @@ const interventionsBackground = '/assets/interventions-background.png';
 const sponsorGiftStoryImage = '/assets/sponsor-gift-story-header.jpg';
 const difficultDecisionsStoryImage = '/assets/difficult-decisions-header.jpg';
 const humanTraffickingStoryImage = '/assets/human-trafficking-header.jpg';
+const richardInventorStoryImage = '/assets/richard-inventor-radio.jpg';
+const lettersDeliveredStoryImage = '/assets/letters-delivered-children.jpg';
 
 interface InterventionsProps {
   onOpenDonateWithCause: (causeId: string) => void;
@@ -16,24 +18,7 @@ interface InterventionsProps {
 
 export default function Interventions({ onOpenDonateWithCause }: InterventionsProps) {
   const router = useRouter();
-  const visibleInterventions = INTERVENTIONS.filter((item) => !['nutrition', 'vocational', 'disaster'].includes(item.id));
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Education Support':
-        return <GraduationCap className="w-4 h-4 text-blue-600" />;
-      case 'Health & Wellness':
-        return <Activity className="w-4 h-4 text-red-500" />;
-      case 'Clean Water':
-        return <Droplets className="w-4 h-4 text-sky-500" />;
-      case 'Nutritional Care':
-        return <Sparkles className="w-4 h-4 text-amber-500" />;
-      case 'Skills Training':
-        return <BookOpen className="w-4 h-4 text-emerald-500" />;
-      default:
-        return <ShieldAlert className="w-4 h-4 text-purple-500" />;
-    }
-  };
+  const visibleInterventions = INTERVENTIONS.filter((item) => item.id === 'education');
 
   const getCauseIdFromCategory = (category: string) => {
     switch (category) {
@@ -102,12 +87,6 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  
-                  {/* Category Pill Tag */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-full text-[10px] font-bold text-gray-800 shadow-sm flex items-center gap-1.5">
-                    {getCategoryIcon(item.category)}
-                    {item.category}
-                  </div>
                 </div>
 
                 {/* Text description panel */}
@@ -160,10 +139,6 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
                   alt="Young girl standing in a small family store"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-full text-[10px] font-bold text-gray-800 shadow-sm flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-red-500 fill-current" />
-                  Intervention Story
-                </div>
               </button>
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -211,10 +186,6 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
                   alt="Mother and child supported through emergency food packs"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-full text-[10px] font-bold text-gray-800 shadow-sm flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-amber-500" />
-                  Emergency Food Packs
-                </div>
               </button>
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -262,10 +233,6 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
                   alt="Young person standing in silhouette"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm py-1.5 px-3 rounded-full text-[10px] font-bold text-gray-800 shadow-sm flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  Child Protection
-                </div>
               </button>
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -285,6 +252,100 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
                   <button
                     id="read-human-trafficking-story-btn"
                     onClick={() => router.push('/interventions/what-is-human-trafficking')}
+                    className="bg-blue-50 hover:bg-blue-100 text-[#0038a8] hover:text-[#002d86] font-display font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    Read Story
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              key="richard-inventor-story"
+              id="intervention-richard-inventor-story-card"
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group"
+            >
+              <button
+                type="button"
+                onClick={() => router.push('/interventions/richard-the-inventor')}
+                className="relative h-48 sm:h-52 overflow-hidden bg-slate-100 text-left cursor-pointer"
+                aria-label="Read Richard the Inventor"
+              >
+                <img
+                  src={richardInventorStoryImage}
+                  alt="Richard smiling beside a handmade radio"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </button>
+
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-title font-extrabold text-lg text-[#0038a8] group-hover:text-blue-700 transition-colors">
+                    Richard the Inventor
+                  </h3>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    An innovative teenager in Ghana shows how encouragement, mentoring, and technical education can turn curiosity into opportunity.
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+                    Skills & Innovation
+                  </span>
+                  <button
+                    id="read-richard-inventor-story-btn"
+                    onClick={() => router.push('/interventions/richard-the-inventor')}
+                    className="bg-blue-50 hover:bg-blue-100 text-[#0038a8] hover:text-[#002d86] font-display font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    Read Story
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              key="letters-delivered-story"
+              id="intervention-letters-delivered-story-card"
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group"
+            >
+              <button
+                type="button"
+                onClick={() => router.push('/interventions/how-are-your-compassion-letters-delivered')}
+                className="relative h-48 sm:h-52 overflow-hidden bg-slate-100 text-left cursor-pointer"
+                aria-label="Read How Are Your Compassion Letters Delivered?"
+              >
+                <img
+                  src={lettersDeliveredStoryImage}
+                  alt="Children gathered as a Compassion letter is delivered"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </button>
+
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-title font-extrabold text-lg text-[#0038a8] group-hover:text-blue-700 transition-colors">
+                    How Are Your Compassion Letters Delivered?
+                  </h3>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    Follow the journey of sponsor letters in Ghana as staff cross roads, rivers, and remote communities to reach children.
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+                    Child Sponsorship
+                  </span>
+                  <button
+                    id="read-letters-delivered-story-btn"
+                    onClick={() => router.push('/interventions/how-are-your-compassion-letters-delivered')}
                     className="bg-blue-50 hover:bg-blue-100 text-[#0038a8] hover:text-[#002d86] font-display font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1 cursor-pointer transition-colors"
                   >
                     Read Story

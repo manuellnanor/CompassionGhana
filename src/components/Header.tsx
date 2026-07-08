@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X, Phone, Mail, Facebook, Twitter, Instagram, Heart, ArrowUpRight, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, Facebook, Twitter, Instagram, Heart, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const compassionLogo = '/assets/logo-header.png';
@@ -20,7 +20,6 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
   // Mobile sub-menu toggles
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
 
   useEffect(() => {
@@ -34,7 +33,15 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
   useEffect(() => {
     if (!isHomePage) {
-      setActiveSection(pathname === '/about' ? 'about-us' : pathname === '/contact' ? 'footer' : 'home');
+      setActiveSection(
+        pathname === '/about'
+          ? 'about-us'
+          : pathname === '/contact'
+            ? 'footer'
+            : pathname === '/programs-and-interventions'
+              ? 'work'
+              : 'home'
+      );
       return;
     }
 
@@ -92,7 +99,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
   const isParentActive = (parent: string) => {
     if (parent === 'about' && (activeSection === 'about-us' || activeSection === 'partners')) return true;
-    if (parent === 'work' && (activeSection === 'interventions' || activeSection === 'foundational-choices' || activeSection === 'strategic-goal')) return true;
+    if (parent === 'work' && (activeSection === 'work' || activeSection === 'interventions')) return true;
     if (parent === 'resources' && (activeSection === 'faq' || activeSection === 'video-section')) return true;
     return false;
   };
@@ -236,47 +243,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               </AnimatePresence>
             </div>
 
-            {/* Our Work dropdown */}
-            <div 
-              className="relative py-1"
-              onMouseEnter={() => setActiveDropdown('work')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button id="nav-work" onClick={() => scrollToSection('interventions')} className={getNavItemClass('work', true)}>
-                Our Work <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'work' ? 'rotate-180' : ''}`} />
-              </button>
-              
-              <AnimatePresence>
-                {activeDropdown === 'work' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute left-0 mt-3 w-60 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
-                  >
-                    <button 
-                      onClick={() => { scrollToSection('interventions'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
-                    >
-                      Program Interventions
-                    </button>
-                    <button 
-                      onClick={() => { scrollToSection('foundational-choices'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
-                    >
-                      Foundational Choices
-                    </button>
-                    <button 
-                      onClick={() => { scrollToSection('strategic-goal'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
-                    >
-                      Strategic Target 2030
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <button id="nav-work" onClick={() => goToRoute('/programs-and-interventions')} className={getNavItemClass('work', true)}>
+              Programs & Interventions
+            </button>
 
             {/* Resources dropdown */}
             <div 
@@ -372,22 +341,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   </AnimatePresence>
                 </div>
 
-                {/* Mobile Our Work Submenu */}
-                <div>
-                  <button onClick={() => setMobileWorkOpen(!mobileWorkOpen)} className="w-full flex justify-between items-center text-left py-2 border-b border-white/5 hover:text-[#FFD100]">
-                    <span>Our Work</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileWorkOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {mobileWorkOpen && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
-                        <button onClick={() => { scrollToSection('interventions'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Program Interventions</button>
-                        <button onClick={() => { scrollToSection('foundational-choices'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Foundational Choices</button>
-                        <button onClick={() => { scrollToSection('strategic-goal'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Strategic Target 2030</button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                <button id="mobile-nav-work" onClick={() => goToRoute('/programs-and-interventions')} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">
+                  Programs & Interventions
+                </button>
 
                 {/* Mobile Resources Submenu */}
                 <div>
