@@ -101,22 +101,22 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'regions',
     question: 'In which regions of Ghana does Compassion International operate?',
-    answer: 'Compassion International Ghana currently operates in multiple areas, partnering with over 400 local evangelical churches in the Greater Accra, Eastern, Volta, Central, Ashanti, and Western regions to offer holistic developmental support directly to communities.'
+    answer: 'Compassion International Ghana operates in 12 out of the 16 regions of the country, partnering with over 418 churches across 33 denominations. These partnerships are strategically spread to reach children and youth in various communities affected by poverty.'
   },
   {
     id: 'support',
     question: 'How can someone support the work of Compassion International Ghana?',
-    answer: 'You can support our mission by sponsoring a specific Ghanaian child, making a targeted one-time or recurring general donation to critical areas (like healthcare, water filters, or education), partnering as a local church, or sharing our stories on social media.'
+    answer: 'You can support Compassion International Ghana by becoming a child sponsor, making a donation, or partnering with local churches and communities. Sponsorships and donations directly contribute to providing essential resources and services like education, healthcare, and skill development for children and youth in need.'
   },
   {
     id: 'sponsorship',
     question: 'How does child sponsorship work and what exactly does it provide?',
-    answer: 'Sponsorship establishes a direct connection between you and a child in need. Your monthly sponsorship contribution of $43 provides them with critical, localized benefits including academic tuition support, nutritional food, medical screenings, social mentoring, and personal character development under local church supervision.'
+    answer: 'Child sponsorship connects a sponsor with a child through a local church partner. Sponsorship support helps provide individualized care such as education, health services, spiritual nurturing, mentoring, and practical development opportunities so children and youth can grow toward their God-given potential.'
   },
   {
     id: 'long-term',
-    question: 'What are the long-term strategic goals of Compassion International Ghana?',
-    answer: 'Our main strategic goal is to reach and transform the lives of 150,000 children and youth in poverty-stricken communities across Ghana by the year 2030, empowering them with skills, faith, and physical well-being to achieve self-reliance and community impact.'
+    question: 'What are the long-term goals of Compassion International Ghana?',
+    answer: 'CIGH aims to transform the lives of 150,000 children and youth in poverty-stricken communities by 2030. Its strategic outcomes focus on developing fulfilled Christian youth, resilient families, and resourceful church partners who can deliver timely and context-appropriate interventions.'
   }
 ];
 

@@ -136,9 +136,14 @@ export default function AboutPage() {
             <TitleReveal className="font-title font-extrabold text-3xl sm:text-4xl text-blue-950 leading-tight">
               A Ghanaian team committed to whole-life child development.
             </TitleReveal>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Since 2005, CIGH has worked through evangelical church partners to support children, youth, and families living in poverty. Our work combines health care, education support, child protection, mentoring, nutrition, spiritual care, and family strengthening.
-            </p>
+            <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p>
+                Compassion International Ghana (CIGH) Was Established In 2005 And Partners With Evangelical Churches, Currently Collaborating With Over 418 Church Partners Across 33 Denominations In 12 Out Of 16 Regions Of Ghana. CIGH Responds To The Needs Of Over 99,394 Children, Youth, And Their Households Living In Poverty. Our Mission Involves Facilitating Opportunities For Children And Youth To Develop Their God-Given Potential, Empowering Them Through Spiritual Nurturing, Career Development, Health, And Overall Well-Being. Our Aim Is To Reach And Transform The Lives Of 150,000 Children And Youth In Poverty-Stricken Communities By 2030.
+              </p>
+              <p>
+                As A Member Of The Compassion International Group, Which Has Been In Existence For Over Seven Decades, Compassion International Is Recognized Globally For Its Commitment To Long-Term Holistic Child And Youth Development. Compassion International Is Regarded As The World's Leading Authority In Holistic Child Development Through Sponsorships. These Sponsorships And Donations Empower Local Churches To Provide Individualized And Holistic Care, Enabling Children In Poverty To Learn, Grow, Play, And Dream. The Head Office Of Compassion International Is Located In Colorado Springs, USA, And It Operates In 29 Countries, Including Ten In Africa. In East Africa, We Have A Presence In Rwanda, Kenya, Ethiopia, Uganda, Malawi, Zambia, And Tanzania, While In West Africa, We Operate In Burkina Faso, Ghana, And Togo.
+              </p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 ["Holistic care", "Programs support the whole child, not only one immediate need."],
