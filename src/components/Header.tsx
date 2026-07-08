@@ -243,9 +243,34 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               </AnimatePresence>
             </div>
 
-            <button id="nav-work" onClick={() => goToRoute('/programs-and-interventions')} className={getNavItemClass('work', true)}>
-              Programs & Interventions
-            </button>
+            <div 
+              className="relative py-1"
+              onMouseEnter={() => setActiveDropdown('work')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button id="nav-work" onClick={() => goToRoute('/programs-and-interventions')} className={getNavItemClass('work', true)}>
+                Our Work <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'work' ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <AnimatePresence>
+                {activeDropdown === 'work' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="absolute left-0 mt-3 w-64 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
+                  >
+                    <button 
+                      onClick={() => { goToRoute('/programs-and-interventions'); setActiveDropdown(null); }}
+                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                    >
+                      Programs & Interventions
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Resources dropdown */}
             <div 
@@ -341,9 +366,19 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   </AnimatePresence>
                 </div>
 
-                <button id="mobile-nav-work" onClick={() => goToRoute('/programs-and-interventions')} className="text-left py-2 border-b border-white/5 hover:text-[#FFD100]">
-                  Programs & Interventions
-                </button>
+                <div>
+                  <button onClick={() => setActiveDropdown(activeDropdown === 'mobile-work' ? null : 'mobile-work')} className="w-full flex justify-between items-center text-left py-2 border-b border-white/5 hover:text-[#FFD100]">
+                    <span>Our Work</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'mobile-work' ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {activeDropdown === 'mobile-work' && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
+                        <button onClick={() => goToRoute('/programs-and-interventions')} className="text-left text-sm py-1 hover:text-yellow-400">Programs & Interventions</button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 {/* Mobile Resources Submenu */}
                 <div>
