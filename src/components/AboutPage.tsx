@@ -145,18 +145,31 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                ["Holistic care", "Programs support the whole child, not only one immediate need."],
-                ["Local accountability", "Church partners deliver contextual care with community ownership."],
-                ["Long-term impact", "Children are mentored toward resilience, leadership, and self-reliance."],
-                ["Faithful stewardship", "Resources are managed with transparent program priorities."],
-              ].map(([title, description]) => (
-                <div key={title} className="bg-white rounded-2xl border border-slate-100 p-5">
-                  <ShieldCheck className="w-5 h-5 text-[#00A896] mb-3" />
-                  <h3 className="font-display font-bold text-blue-950 text-sm">{title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed mt-1.5">{description}</p>
+              <div className="bg-white rounded-2xl border border-slate-100 p-5">
+                <Heart className="w-5 h-5 text-[#00A896] mb-3" />
+                <h3 className="font-display font-bold text-blue-950 text-sm">Mission</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mt-1.5">
+                  Releasing children from poverty in Jesus name.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl border border-slate-100 p-5">
+                <Target className="w-5 h-5 text-[#00A896] mb-3" />
+                <h3 className="font-display font-bold text-blue-950 text-sm">Vision</h3>
+                <p className="text-xs text-slate-500 leading-relaxed mt-1.5">
+                  To raise fulfilled Christian youth who are influencing their world.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl border border-slate-100 p-5 sm:col-span-2">
+                <ShieldCheck className="w-5 h-5 text-[#00A896] mb-3" />
+                <h3 className="font-display font-bold text-blue-950 text-sm">Core Values</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {["Discernment", "Stewardship", "Integrity", "Dignity", "Excellence"].map((value) => (
+                    <span key={value} className="rounded-full bg-slate-50 border border-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                      {value}
+                    </span>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
 
