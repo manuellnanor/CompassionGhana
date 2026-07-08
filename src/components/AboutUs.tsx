@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, BookOpen, Heart, ShieldAlert, Award, Sparkles, X } from 'lucide-react';
+import { motion } from 'motion/react';
 import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
@@ -8,8 +6,6 @@ const aboutUs1 = '/assets/about-us-1.jpg';
 const aboutUs2 = '/assets/about-us-2.png';
 
 export default function AboutUs() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section id="about-us" className="py-20 bg-[#0038a8] font-sans relative overflow-hidden text-white">
       
@@ -55,13 +51,13 @@ export default function AboutUs() {
 
               {/* Learn More Button (White Capsule with Royal Blue Text) */}
               <div>
-                <button
+                <a
                   id="about-learn-more-btn"
-                  onClick={() => setIsModalOpen(true)}
+                  href="/about"
                   className="inline-flex items-center gap-2 bg-white hover:bg-white/95 text-[#0038a8] font-display font-bold text-sm px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg cursor-pointer hover:scale-102 mb-6"
                 >
                   Learn More
-                </button>
+                </a>
               </div>
             </div>
 
@@ -84,105 +80,6 @@ export default function AboutUs() {
         </div>
 
       </div>
-
-      {/* Interactive "Learn More" Detail Dialog */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <motion.div 
-              className="absolute inset-0" 
-              onClick={() => setIsModalOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
-            <motion.div
-              id="about-detail-modal"
-              initial={{ scale: 0.95, opacity: 0, y: 15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 15 }}
-              className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl z-10 overflow-hidden font-sans"
-            >
-              {/* Header */}
-              <div className="bg-[#0038a8] text-white px-6 py-5 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-yellow-400" />
-                  <span className="font-title font-bold text-lg">Compassion Ghana At A Glance</span>
-                </div>
-                <button 
-                  id="close-about-modal-btn"
-                  onClick={() => setIsModalOpen(false)}
-                  className="p-1 text-white/85 hover:text-white hover:bg-white/10 rounded-full transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Content body */}
-              <div className="p-6 sm:p-8 space-y-6 max-h-[70vh] overflow-y-auto text-gray-700">
-                
-                {/* 4 Pillars of Child Development */}
-                <div className="space-y-4">
-                  <h4 className="font-title font-extrabold text-[#0038a8] text-base flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-[#0038a8]" /> The 4 Core Pillars of Holistic Child Development
-                  </h4>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-gray-100">
-                      <h5 className="font-bold text-gray-800 text-sm flex items-center gap-1.5"><Heart className="w-4 h-4 text-red-500" /> Spiritual Development</h5>
-                      <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                        Helping children discover their worth in Jesus Christ, developing an ethical foundation grounded in scripture, and encouraging community service.
-                      </p>
-                    </div>
-
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-gray-100">
-                      <h5 className="font-bold text-gray-800 text-sm flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-blue-500" /> Cognitive Development</h5>
-                      <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                        Ensuring school attendance, tutoring support, language skills, digital literacy, and practical vocational trade skills training.
-                      </p>
-                    </div>
-
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-gray-100">
-                      <h5 className="font-bold text-gray-800 text-sm flex items-center gap-1.5"><Award className="w-4 h-4 text-emerald-500" /> Physical Development</h5>
-                      <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                        Providing regular dental/medical checkups, nutrient supplements, clean water filters, and active physical training and sports activities.
-                      </p>
-                    </div>
-
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-gray-100">
-                      <h5 className="font-bold text-gray-800 text-sm flex items-center gap-1.5"><ShieldAlert className="w-4 h-4 text-amber-500" /> Social-Emotional</h5>
-                      <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                        Providing professional child counseling, safety lessons on child rights and self-protection, and team-building relationship groups.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Accountability section */}
-                <div className="pt-4 border-t border-gray-200">
-                  <h4 className="font-title font-extrabold text-[#0038a8] text-sm">Financial Transparency & Stewardship</h4>
-                  <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
-                    We take financial accountability seriously. At least <strong>80% of all sponsorship and donations</strong> go directly to programs that benefit the registered children. Every cedi and dollar is scrutinized by rigorous internal and external audits to secure stellar and honest administration of funds.
-                  </p>
-                </div>
-
-                {/* Footer action */}
-                <div className="pt-4 flex justify-end">
-                  <button
-                    id="close-about-modal-bottom-btn"
-                    onClick={() => setIsModalOpen(false)}
-                    className="bg-[#0038a8] hover:bg-[#002d86] text-white font-display font-bold text-xs px-6 py-2.5 rounded-full transition-all cursor-pointer"
-                  >
-                    Close Window
-                  </button>
-                </div>
-
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
     </section>
   );
