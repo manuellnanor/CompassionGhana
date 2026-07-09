@@ -89,7 +89,7 @@ function LeaderCard({ leader, variant = "light" }: { leader: Leader; variant?: "
   const isDark = variant === "dark";
 
   return (
-    <article className="group overflow-hidden rounded-[8px] bg-white shadow-[0_14px_40px_rgba(0,30,90,0.18)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(0,30,90,0.24)]">
+    <article className="group overflow-hidden rounded-[20px] bg-white shadow-[0_14px_40px_rgba(0,30,90,0.18)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(0,30,90,0.24)]">
       <div className={`relative aspect-[4/5] overflow-hidden ${isDark ? "bg-white/95" : "bg-slate-100"}`}>
         <img
           src={leader.image}
