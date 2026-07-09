@@ -6,7 +6,6 @@ import SectionBadge from './SectionBadge';
 import TitleReveal from './TitleReveal';
 
 const interventionsBackground = '/assets/interventions-background.png';
-const sponsorGiftStoryImage = '/assets/sponsor-gift-story-header.jpg';
 const difficultDecisionsStoryImage = '/assets/difficult-decisions-header.jpg';
 const humanTraffickingStoryImage = '/assets/human-trafficking-header.jpg';
 const richardInventorStoryImage = '/assets/richard-inventor-radio.jpg';
@@ -119,53 +118,6 @@ export default function Interventions({ onOpenDonateWithCause }: InterventionsPr
 
               </motion.div>
             ))}
-            <motion.div
-              key="sponsor-gift-story"
-              id="intervention-sponsor-gift-story-card"
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 flex flex-col justify-between group"
-            >
-              <button
-                type="button"
-                onClick={() => router.push('/interventions/a-sponsors-gift-changed-this-familys-life')}
-                className="relative h-48 sm:h-52 overflow-hidden bg-slate-100 text-left cursor-pointer"
-                aria-label="Read A Sponsor's Gift Changed This Family's Life"
-              >
-                <img
-                  src={sponsorGiftStoryImage}
-                  alt="Young girl standing in a small family store"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </button>
-
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <h3 className="font-title font-extrabold text-lg text-[#0038a8] group-hover:text-blue-700 transition-colors">
-                    A Sponsor's Gift Changed This Family's Life
-                  </h3>
-                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    A sponsor's gift helped Joseph's family move from financial pressure toward stability through a small grocery storefront.
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
-                    Family Resilience
-                  </span>
-                  <button
-                    id="read-sponsor-gift-story-btn"
-                    onClick={() => router.push('/interventions/a-sponsors-gift-changed-this-familys-life')}
-                    className="bg-blue-50 hover:bg-blue-100 text-[#0038a8] hover:text-[#002d86] font-display font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1 cursor-pointer transition-colors"
-                  >
-                    Read Story
-                  </button>
-                </div>
-              </div>
-            </motion.div>
             <motion.div
               key="difficult-decisions-story"
               id="intervention-difficult-decisions-story-card"

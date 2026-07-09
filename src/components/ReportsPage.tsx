@@ -73,17 +73,17 @@ export default function ReportsPage() {
 
       <section className="bg-slate-50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {reports.map((report) => (
               <article
                 key={report.href}
-                className="group flex min-h-full flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group flex min-h-full flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <a
                   href={report.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block aspect-[3/4] overflow-hidden bg-slate-100"
+                  className="relative block h-44 overflow-hidden bg-slate-100"
                   aria-label={`Open ${report.title}`}
                 >
                   <img
@@ -94,22 +94,22 @@ export default function ReportsPage() {
                   <div className={`absolute left-0 top-0 h-1.5 w-full ${report.accent}`} />
                 </a>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-[#0038a8]">
+                <div className="flex flex-1 flex-col p-4">
+                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#0038a8]">
                     {report.period}
                   </p>
-                  <h2 className="mt-3 font-display text-xl font-black leading-snug text-slate-950">
+                  <h2 className="mt-2 font-display text-base font-black leading-snug text-slate-950">
                     {report.title}
                   </h2>
-                  <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 flex-1 text-xs leading-5 text-slate-600">
                     {report.description}
                   </p>
 
-                  <div className="mt-6 flex items-center gap-3">
+                  <div className="mt-4 flex items-center gap-2">
                     <a
                       href={report.href}
                       download
-                      className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-[#0038a8] px-4 py-2 text-sm font-extrabold text-white transition hover:bg-[#002d86]"
+                      className="inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-full bg-[#0038a8] px-3 py-2 text-xs font-extrabold text-white transition hover:bg-[#002d86]"
                     >
                       <Download className="h-4 w-4" />
                       Download
@@ -118,7 +118,7 @@ export default function ReportsPage() {
                       href={report.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-[#0038a8] transition hover:border-[#0038a8] hover:bg-[#0038a8] hover:text-white"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-[#0038a8] transition hover:border-[#0038a8] hover:bg-[#0038a8] hover:text-white"
                       aria-label={`Open ${report.title} in a new tab`}
                     >
                       <ExternalLink className="h-4 w-4" />

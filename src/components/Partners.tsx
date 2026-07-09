@@ -81,11 +81,6 @@ export default function Partners() {
               >
                 {/* Partner logo */}
                 {getPartnerLogo(partner.id)}
-                
-                {/* Small Tag */}
-                <span className="text-[9px] font-mono font-bold text-gray-400 uppercase tracking-widest">
-                  {partner.type}
-                </span>
               </div>
             ))}
           </div>
