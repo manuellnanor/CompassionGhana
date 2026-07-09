@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { Comic_Neue } from "next/font/google";
 import type { ReactNode } from "react";
 import "../index.css";
+
+const comicNeue = Comic_Neue({
+  weight: ["700"],
+  subsets: ["latin"],
+  variable: "--font-hand",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://compassiongh.org"),
@@ -57,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GH">
-      <body>{children}</body>
+      <body className={comicNeue.variable}>{children}</body>
     </html>
   );
 }

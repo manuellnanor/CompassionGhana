@@ -124,7 +124,7 @@ export default function Hero({ onOpenDonate }: HeroProps) {
               </h1>
               
               <div className="relative inline-block mt-2">
-                <span className="font-hand text-[clamp(3rem,14vw,3.75rem)] sm:text-7xl md:text-8xl !text-[#FFD100] block tracking-normal rotate-[-3deg] transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                <span className="font-hand text-[clamp(3rem,14vw,3.75rem)] font-bold leading-none sm:text-7xl md:text-8xl !text-[#FFD100] block tracking-normal rotate-[-3deg] transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
                   {HERO_SLIDES[currentSlide].handwritten}
                 </span>
                 
