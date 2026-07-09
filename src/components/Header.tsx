@@ -40,7 +40,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
             ? 'footer'
             : pathname === '/programs-and-interventions'
               ? 'work'
-              : 'home'
+              : pathname === '/reports'
+                ? 'reports'
+                : 'home'
       );
       return;
     }
@@ -100,7 +102,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
   const isParentActive = (parent: string) => {
     if (parent === 'about' && (activeSection === 'about-us' || activeSection === 'partners')) return true;
     if (parent === 'work' && (activeSection === 'work' || activeSection === 'interventions')) return true;
-    if (parent === 'resources' && (activeSection === 'faq' || activeSection === 'video-section')) return true;
+    if (parent === 'resources' && (activeSection === 'reports' || activeSection === 'faq' || activeSection === 'video-section')) return true;
     return false;
   };
 
@@ -278,7 +280,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
               onMouseEnter={() => setActiveDropdown('resources')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button id="nav-faq" onClick={() => scrollToSection('faq')} className={getNavItemClass('resources', true)}>
+              <button id="nav-reports" onClick={() => goToRoute('/reports')} className={getNavItemClass('resources', true)}>
                 Resources <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
               </button>
               
@@ -296,6 +298,12 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                       className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
                     >
                       Frequently Asked Questions
+                    </button>
+                    <button 
+                      onClick={() => { goToRoute('/reports'); setActiveDropdown(null); }}
+                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                    >
+                      Reports
                     </button>
                     <button 
                       onClick={() => { scrollToSection('video-section'); setActiveDropdown(null); }}
@@ -383,13 +391,14 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                 {/* Mobile Resources Submenu */}
                 <div>
                   <button onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)} className="w-full flex justify-between items-center text-left py-2 border-b border-white/5 hover:text-[#FFD100]">
-                    <span>Resources & FAQ</span>
+                    <span>Resources & Reports</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileResourcesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence>
                     {mobileResourcesOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
                         <button onClick={() => { scrollToSection('faq'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Frequently Asked Questions</button>
+                        <button onClick={() => goToRoute('/reports')} className="text-left text-sm py-1 hover:text-yellow-400">Reports</button>
                         <button onClick={() => { scrollToSection('video-section'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Media & Documentaries</button>
                       </motion.div>
                     )}
