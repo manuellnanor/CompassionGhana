@@ -38,6 +38,8 @@ export default function Header({ onOpenDonate }: HeaderProps) {
           ? 'about-us'
           : pathname === '/leaders'
             ? 'leadership'
+          : pathname === '/church-partners'
+            ? 'partners'
           : pathname === '/contact'
             ? 'footer'
             : pathname === '/programs-and-interventions'
@@ -116,6 +118,12 @@ export default function Header({ onOpenDonate }: HeaderProps) {
     }
     return `${base} text-white hover:text-white hover:bg-white/15`;
   };
+
+  const desktopDropdownItemClass =
+    "w-full text-left px-6 py-4 font-montserrat font-medium text-base tracking-wide text-white transition-colors duration-200 hover:bg-white hover:text-[#0038a8]";
+
+  const mobileDropdownItemClass =
+    "w-full rounded-lg px-3 py-2 text-left text-sm text-white/85 transition-colors duration-200 hover:bg-white hover:text-[#0038a8]";
 
   return (
     <header className="w-full z-40 fixed top-0 left-0 transition-all duration-500 ease-out">
@@ -222,23 +230,23 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute left-0 mt-3 w-60 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
+                    className="absolute left-0 mt-3 w-60 overflow-hidden bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] z-50 flex flex-col border-t border-white/10 font-sans"
                   >
                     <button 
                       onClick={() => { goToRoute('/about'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      className={desktopDropdownItemClass}
                     >
                       Who We Are
                     </button>
                     <button 
                       onClick={() => { goToRoute('/leaders'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      className={desktopDropdownItemClass}
                     >
                       Leadership
                     </button>
                     <button 
-                      onClick={() => { scrollToSection('partners'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      onClick={() => { goToRoute('/church-partners'); setActiveDropdown(null); }}
+                      className={desktopDropdownItemClass}
                     >
                       Church Partners
                     </button>
@@ -263,11 +271,11 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute left-0 mt-3 w-64 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
+                    className="absolute left-0 mt-3 w-64 overflow-hidden bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] z-50 flex flex-col border-t border-white/10 font-sans"
                   >
                     <button 
                       onClick={() => { goToRoute('/programs-and-interventions'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      className={desktopDropdownItemClass}
                     >
                       Programs & Interventions
                     </button>
@@ -293,23 +301,17 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 12, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute left-0 mt-3 w-60 bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] py-7 px-6 z-50 flex flex-col gap-6 border-t border-white/10 font-sans"
+                    className="absolute left-0 mt-3 w-60 overflow-hidden bg-[#0038a8] text-white shadow-2xl rounded-b-[1.5rem] z-50 flex flex-col border-t border-white/10 font-sans"
                   >
                     <button 
-                      onClick={() => { scrollToSection('faq'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
-                    >
-                      Frequently Asked Questions
-                    </button>
-                    <button 
                       onClick={() => { goToRoute('/reports'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      className={desktopDropdownItemClass}
                     >
                       Reports
                     </button>
                     <button 
                       onClick={() => { scrollToSection('video-section'); setActiveDropdown(null); }}
-                      className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
+                      className={desktopDropdownItemClass}
                     >
                       Media & Documentaries
                     </button>
@@ -368,9 +370,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   <AnimatePresence>
                     {mobileAboutOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
-                        <button onClick={() => goToRoute('/about')} className="text-left text-sm py-1 hover:text-yellow-400">Who We Are</button>
-                        <button onClick={() => goToRoute('/leaders')} className="text-left text-sm py-1 hover:text-yellow-400">Leadership</button>
-                        <button onClick={() => { scrollToSection('partners'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Church Partners</button>
+                        <button onClick={() => goToRoute('/about')} className={mobileDropdownItemClass}>Who We Are</button>
+                        <button onClick={() => goToRoute('/leaders')} className={mobileDropdownItemClass}>Leadership</button>
+                        <button onClick={() => goToRoute('/church-partners')} className={mobileDropdownItemClass}>Church Partners</button>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -384,7 +386,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   <AnimatePresence>
                     {activeDropdown === 'mobile-work' && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
-                        <button onClick={() => goToRoute('/programs-and-interventions')} className="text-left text-sm py-1 hover:text-yellow-400">Programs & Interventions</button>
+                        <button onClick={() => goToRoute('/programs-and-interventions')} className={mobileDropdownItemClass}>Programs & Interventions</button>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -399,9 +401,8 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                   <AnimatePresence>
                     {mobileResourcesOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
-                        <button onClick={() => { scrollToSection('faq'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Frequently Asked Questions</button>
-                        <button onClick={() => goToRoute('/reports')} className="text-left text-sm py-1 hover:text-yellow-400">Reports</button>
-                        <button onClick={() => { scrollToSection('video-section'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Media & Documentaries</button>
+                        <button onClick={() => goToRoute('/reports')} className={mobileDropdownItemClass}>Reports</button>
+                        <button onClick={() => { scrollToSection('video-section'); setIsMobileMenuOpen(false); }} className={mobileDropdownItemClass}>Media & Documentaries</button>
                       </motion.div>
                     )}
                   </AnimatePresence>
