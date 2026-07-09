@@ -36,6 +36,8 @@ export default function Header({ onOpenDonate }: HeaderProps) {
       setActiveSection(
         pathname === '/about'
           ? 'about-us'
+          : pathname === '/leaders'
+            ? 'leadership'
           : pathname === '/contact'
             ? 'footer'
             : pathname === '/programs-and-interventions'
@@ -100,7 +102,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
   };
 
   const isParentActive = (parent: string) => {
-    if (parent === 'about' && (activeSection === 'about-us' || activeSection === 'partners')) return true;
+    if (parent === 'about' && (activeSection === 'about-us' || activeSection === 'leadership' || activeSection === 'partners')) return true;
     if (parent === 'work' && (activeSection === 'work' || activeSection === 'interventions')) return true;
     if (parent === 'resources' && (activeSection === 'reports' || activeSection === 'faq' || activeSection === 'video-section')) return true;
     return false;
@@ -229,7 +231,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                       Who We Are
                     </button>
                     <button 
-                      onClick={() => { goToRoute('/about#leadership'); setActiveDropdown(null); }}
+                      onClick={() => { goToRoute('/leaders'); setActiveDropdown(null); }}
                       className="text-left font-montserrat font-medium text-sm tracking-wide text-white/95 hover:text-[#FFD100] transition-colors duration-200"
                     >
                       Leadership
@@ -367,7 +369,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                     {mobileAboutOpen && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pl-4 flex flex-col gap-2.5 mt-2 pb-2 text-white/80">
                         <button onClick={() => goToRoute('/about')} className="text-left text-sm py-1 hover:text-yellow-400">Who We Are</button>
-                        <button onClick={() => goToRoute('/about#leadership')} className="text-left text-sm py-1 hover:text-yellow-400">Leadership</button>
+                        <button onClick={() => goToRoute('/leaders')} className="text-left text-sm py-1 hover:text-yellow-400">Leadership</button>
                         <button onClick={() => { scrollToSection('partners'); setIsMobileMenuOpen(false); }} className="text-left text-sm py-1 hover:text-yellow-400">Church Partners</button>
                       </motion.div>
                     )}
