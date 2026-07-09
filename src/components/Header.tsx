@@ -330,10 +330,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
             <button
               id="header-donate-btn"
               onClick={onOpenDonate}
-              className="bg-[#00A896] hover:bg-[#02C39A] text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer hover:scale-102"
+              className="bg-[#0798C8] hover:bg-[#08A9DA] text-white px-9 py-3 rounded-full font-display font-bold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center cursor-pointer hover:scale-102"
             >
-              <Heart className="w-4 h-4 fill-white" />
-              Sponsor a Child
+              Donate
             </button>
           </div>
 
@@ -413,9 +412,9 @@ export default function Header({ onOpenDonate }: HeaderProps) {
                 <button
                   id="mobile-nav-donate-btn"
                   onClick={() => { setIsMobileMenuOpen(false); onOpenDonate(); }}
-                  className="w-full bg-[#00A896] text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md mt-2 cursor-pointer"
+                  className="w-full bg-[#0798C8] hover:bg-[#08A9DA] text-white py-3 rounded-xl font-bold flex items-center justify-center shadow-md mt-2 cursor-pointer"
                 >
-                  <Heart className="w-4 h-4 fill-white" /> Sponsor a Child
+                  Donate
                 </button>
               </div>
             </motion.div>

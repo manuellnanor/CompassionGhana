@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const hero1 = '/assets/hero-1.webp';
@@ -52,8 +52,8 @@ export default function Hero({ onOpenDonate }: HeroProps) {
     setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
   };
 
-  const handleScrollToVideo = () => {
-    const el = document.getElementById('video-section');
+  const handleScrollToAbout = () => {
+    const el = document.getElementById('about-us');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -119,12 +119,12 @@ export default function Hero({ onOpenDonate }: HeroProps) {
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full flex-col items-center"
             >
-              <h1 className="w-full max-w-full font-display font-black text-[clamp(2.85rem,13vw,3.75rem)] sm:text-7xl md:text-8xl tracking-[0.08em] sm:tracking-widest text-white leading-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+              <h1 className="w-full max-w-full font-display font-black text-[clamp(2.85rem,13vw,3.75rem)] sm:text-7xl md:text-8xl tracking-[0.08em] sm:tracking-widest !text-white leading-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
                 {HERO_SLIDES[currentSlide].title}
               </h1>
               
               <div className="relative inline-block mt-2">
-                <span className="font-hand text-[clamp(3rem,14vw,3.75rem)] sm:text-7xl md:text-8xl text-[#FFD100] block tracking-normal rotate-[-3deg] transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                <span className="font-hand text-[clamp(3rem,14vw,3.75rem)] sm:text-7xl md:text-8xl !text-[#FFD100] block tracking-normal rotate-[-3deg] transform hover:scale-105 transition-transform duration-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
                   {HERO_SLIDES[currentSlide].handwritten}
                 </span>
                 
@@ -160,21 +160,20 @@ export default function Hero({ onOpenDonate }: HeroProps) {
           className="mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto"
         >
           <button
-            id="hero-donate-btn"
-            onClick={onOpenDonate}
+            id="hero-about-btn"
+            onClick={handleScrollToAbout}
             className="w-full sm:w-auto min-h-12 bg-[#FFD100] hover:bg-[#FFE359] text-[#0038a8] font-display font-extrabold text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 shadow-lg shadow-yellow-500/10 transition-all transform hover:scale-102 cursor-pointer"
           >
-            Sponsor a Child
+            About Us
             <ArrowRight className="w-4 h-4" />
           </button>
 
           <button
-            id="hero-video-btn"
-            onClick={handleScrollToVideo}
+            id="hero-sponsor-btn"
+            onClick={onOpenDonate}
             className="w-full sm:w-auto min-h-12 bg-white/10 hover:bg-white/15 text-white border border-white/25 hover:border-white/40 font-display font-bold text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
-            <Play className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-            Watch Our Impact
+            Sponsor a Child
           </button>
         </motion.div>
 
