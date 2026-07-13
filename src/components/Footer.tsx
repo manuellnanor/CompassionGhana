@@ -1,18 +1,13 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronUp, Heart } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Heart } from 'lucide-react';
 
-const compassionLogo = '/assets/logo-header.png';
+const compassionLogo = '/assets/logo-compassion-white.svg';
+const skippyLogo = '/assets/logo-skippy-white.svg';
 
 interface FooterProps {
   onOpenDonate?: () => void;
 }
 
 export default function Footer({ onOpenDonate }: FooterProps) {
-  
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -40,7 +35,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
             <img
               src={compassionLogo}
               alt="Compassion International Ghana"
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain brightness-0 invert"
             />
             <div className="hidden items-center gap-3">
               <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center p-1">
@@ -168,21 +163,26 @@ export default function Footer({ onOpenDonate }: FooterProps) {
         </div>
       </div>
 
-      {/* Lower Footer: Copyright bar */}
-      <div className="bg-[#001124] py-6 px-4 sm:px-8 border-t border-white/5 text-center text-xs text-gray-400">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 relative">
+      {/* Lower Footer: Legal information */}
+      <div className="px-4 pb-8 sm:px-8 sm:pb-10">
+        <div className="mx-auto max-w-[1650px] border-t border-white/80 pt-12 sm:pt-14">
+          <img
+            src={skippyLogo}
+            alt="Compassion"
+            className="h-[76px] w-auto object-contain"
+          />
           
-          <p>© Copyright 2026 | Compassiongh.org | All Rights Reserved</p>
+          <p className="mt-6 text-sm font-semibold text-white sm:text-base">
+            © 2026 Compassion International. All Rights Reserved.
+          </p>
           
-          {/* Back to Top button */}
-          <button
-            id="back-to-top-btn"
-            onClick={handleBackToTop}
-            className="bg-yellow-400 hover:bg-yellow-500 text-blue-950 p-2.5 rounded-full transition-all shadow-md focus:outline-none hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center group"
-            aria-label="Back to Top"
-          >
-            <ChevronUp className="w-4 h-4 stroke-[3] group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          <nav aria-label="Legal" className="mt-5 flex flex-wrap gap-x-4 gap-y-3 text-sm font-semibold text-white sm:text-base">
+            <a href="#" className="transition-colors hover:text-yellow-300">Privacy Statement</a>
+            <a href="#" className="transition-colors hover:text-yellow-300">Conditions of Use</a>
+            <a href="#" className="transition-colors hover:text-yellow-300">Disclosure Statement</a>
+            <a href="#" className="transition-colors hover:text-yellow-300">Policies &amp; Standards</a>
+            <a href="#" className="transition-colors hover:text-yellow-300">Cookie Preferences</a>
+          </nav>
 
         </div>
       </div>
