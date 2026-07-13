@@ -1,13 +1,9 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Heart } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
 
 const compassionLogo = '/assets/logo-compassion-white.svg';
 const skippyLogo = '/assets/logo-skippy-white.svg';
 
-interface FooterProps {
-  onOpenDonate?: () => void;
-}
-
-export default function Footer({ onOpenDonate }: FooterProps) {
+export default function Footer() {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -40,18 +36,6 @@ export default function Footer({ onOpenDonate }: FooterProps) {
             <p className="max-w-xs leading-relaxed text-gray-300">
               Releasing children from poverty in Jesus' name. Your compassion changes everything.
             </p>
-
-            {/* Sponsorship Button */}
-            {onOpenDonate && (
-              <button
-                id="footer-donate-btn"
-                onClick={onOpenDonate}
-                className="flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[#00A896] px-5 py-2.5 font-bold text-white shadow-md transition-all hover:scale-105 hover:bg-[#02C39A] hover:shadow-lg active:scale-95"
-              >
-                <Heart className="w-3.5 h-3.5 fill-white" />
-                Sponsor a Child
-              </button>
-            )}
 
           </div>
 

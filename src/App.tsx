@@ -65,7 +65,7 @@ export default function App() {
       </main>
 
       {/* Footer layout */}
-      <Footer onOpenDonate={handleOpenDonate} />
+      <Footer />
 
       {/* Pop-up Donation flow */}
       <DonationModal 
