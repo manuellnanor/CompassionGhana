@@ -87,13 +87,16 @@ export default function ChurchPartnersPage() {
             <h2 className="font-title text-3xl font-extrabold text-[#0038a8] sm:text-4xl">
               List of Denominations
             </h2>
-            <div className="mt-8 grid gap-x-12 gap-y-4 md:grid-cols-2">
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
               {denominations.map((name) => (
-                <div key={name} className="flex items-center gap-3 text-slate-600">
-                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0038a8] text-white">
+                <div
+                  key={name}
+                  className="group flex min-h-16 cursor-default items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0038a8] hover:bg-[#0038a8] hover:text-white hover:shadow-[0_14px_32px_rgba(0,56,168,0.22)]"
+                >
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#0038a8] text-white transition-colors duration-300 group-hover:bg-white group-hover:text-[#0038a8]">
                     <Church className="h-4 w-4" />
                   </span>
-                  <span className="text-sm leading-6 sm:text-base">{name}</span>
+                  <span className="font-medium leading-6">{name}</span>
                 </div>
               ))}
             </div>
