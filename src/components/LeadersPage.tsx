@@ -96,15 +96,15 @@ function LeaderCard({ leader, variant = "light" }: { leader: Leader; variant?: "
     : "text-[#0038a8]/75 group-hover:text-white/75";
 
   return (
-    <article className="group overflow-hidden rounded-[20px] bg-white shadow-[0_14px_40px_rgba(0,30,90,0.18)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(0,30,90,0.24)]">
-      <div className={`relative aspect-square overflow-hidden ${isDark ? "bg-white/95" : "bg-slate-100"}`}>
+    <article className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-white shadow-[0_14px_40px_rgba(0,30,90,0.18)] ring-1 ring-white/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(0,30,90,0.24)]">
+      <div className={`relative aspect-square shrink-0 overflow-hidden ${isDark ? "bg-white/95" : "bg-slate-100"}`}>
         <img
           src={leader.image}
           alt={leader.name}
           className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.04] ${leader.imageClass ?? ""}`}
         />
       </div>
-      <div className={`px-4 py-3 text-center transition duration-300 ${namePanelClass}`}>
+      <div className={`flex flex-1 flex-col justify-center px-4 py-3 text-center transition duration-300 ${namePanelClass}`}>
         <h3 className={`font-display text-sm font-black leading-tight transition duration-300 sm:text-base ${nameClass}`}>
           {leader.name}
         </h3>
