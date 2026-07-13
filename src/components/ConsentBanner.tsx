@@ -45,6 +45,14 @@ export default function ConsentBanner() {
 
   useEffect(() => {
     setIsVisible(!hasCurrentConsent());
+
+    const openPreferences = () => {
+      setShowSettings(true);
+      setIsVisible(true);
+    };
+
+    window.addEventListener("open-cookie-preferences", openPreferences);
+    return () => window.removeEventListener("open-cookie-preferences", openPreferences);
   }, []);
 
   const savePreference = (
@@ -132,9 +140,7 @@ export default function ConsentBanner() {
             {showSettings ? "Save Settings" : "Cookie Settings"}
           </button>
           <a
-            href="https://www.compassion.com/privacy-policy/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/privacy-policy"
             className="ConsentBanner__policyLink label-sm"
           >
             Privacy Policy

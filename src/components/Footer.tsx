@@ -22,7 +22,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
   };
 
   return (
-    <footer id="footer" className="bg-[#002d86] text-white font-sans relative">
+    <footer id="footer" className="footer-poppins relative bg-[#002d86] text-white">
       
       {/* Upper Footer: Branding & Navigation columns */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
@@ -37,20 +37,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
               alt="Compassion International Ghana"
               className="h-12 w-auto object-contain brightness-0 invert"
             />
-            <div className="hidden items-center gap-3">
-              <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center p-1">
-                <svg viewBox="0 0 100 100" className="w-full h-full text-[#002d86]">
-                  <circle cx="50" cy="30" r="10" fill="currentColor" />
-                  <path d="M50 45c-15 0-25 10-25 25h10c0-10 8-15 15-15s15 5 15 15h10c0-15-10-25-25-25z" fill="currentColor" />
-                </svg>
-              </div>
-              <div>
-                <span className="font-display font-black text-xl tracking-tight text-white leading-none block">Compassion</span>
-                <span className="text-[9px] text-yellow-400 font-extrabold uppercase tracking-widest leading-none mt-0.5">In Jesus' name</span>
-              </div>
-            </div>
-
-            <p className="text-xs text-gray-300 leading-relaxed max-w-xs">
+            <p className="max-w-xs leading-relaxed text-gray-300">
               Releasing children from poverty in Jesus' name. Your compassion changes everything.
             </p>
 
@@ -59,7 +46,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
               <button
                 id="footer-donate-btn"
                 onClick={onOpenDonate}
-                className="bg-[#00A896] hover:bg-[#02C39A] text-white px-5 py-2.5 rounded-full font-display font-bold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer hover:scale-105 active:scale-95 w-fit"
+                className="flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[#00A896] px-5 py-2.5 font-bold text-white shadow-md transition-all hover:scale-105 hover:bg-[#02C39A] hover:shadow-lg active:scale-95"
               >
                 <Heart className="w-3.5 h-3.5 fill-white" />
                 Sponsor a Child
@@ -70,13 +57,13 @@ export default function Footer({ onOpenDonate }: FooterProps) {
 
           {/* Col 2: Contact Info (3 columns) */}
           <div className="md:col-span-3 space-y-5">
-            <h4 className="font-display font-extrabold text-sm text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="border-b border-white/10 pb-2 font-extrabold uppercase tracking-wider text-white">
               CONTACT INFO
             </h4>
             
             {/* Address Information Card */}
-            <div className="space-y-4 text-xs text-gray-300 leading-relaxed">
-              <p className="font-bold text-white text-xs">Compassion International Ghana</p>
+            <div className="space-y-4 leading-relaxed text-gray-300">
+              <p className="font-bold text-white">Compassion International Ghana</p>
               
               <div className="flex items-start gap-3">
                 <MapPin className="w-3.5 h-3.5 text-yellow-400 shrink-0 mt-0.5" />
@@ -104,11 +91,11 @@ export default function Footer({ onOpenDonate }: FooterProps) {
 
           {/* Col 3: Quick Links (3 columns) */}
           <div className="md:col-span-3 space-y-5 text-left">
-            <h4 className="font-display font-extrabold text-sm text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="border-b border-white/10 pb-2 font-extrabold uppercase tracking-wider text-white">
               QUICK MENU
             </h4>
             
-            <ul className="space-y-3 text-xs text-gray-300 font-medium">
+            <ul className="space-y-3 font-medium text-gray-300">
               <li>
                 <button onClick={() => goToPage('/')} className="hover:text-yellow-300 cursor-pointer transition-colors flex items-center gap-1.5">
                   Home
@@ -139,11 +126,11 @@ export default function Footer({ onOpenDonate }: FooterProps) {
 
           {/* Col 4: Social Media Connections (3 columns) */}
           <div className="md:col-span-3 space-y-5">
-            <h4 className="font-display font-extrabold text-sm text-white uppercase tracking-wider border-b border-white/10 pb-2">
+            <h4 className="border-b border-white/10 pb-2 font-extrabold uppercase tracking-wider text-white">
               SOCIAL CONNECTION
             </h4>
             
-            <p className="text-xs text-gray-300 leading-relaxed">
+            <p className="leading-relaxed text-gray-300">
               Stay in touch with daily field updates from school locations, water wells, and child development milestones.
             </p>
 
@@ -164,24 +151,30 @@ export default function Footer({ onOpenDonate }: FooterProps) {
       </div>
 
       {/* Lower Footer: Legal information */}
-      <div className="px-4 pb-8 sm:px-8 sm:pb-10">
-        <div className="mx-auto max-w-[1650px] border-t border-white/80 pt-12 sm:pt-14">
+      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-8 sm:pb-10">
+        <div className="border-t border-white/80 pt-12 sm:pt-14">
           <img
             src={skippyLogo}
             alt="Compassion"
             className="h-[76px] w-auto object-contain"
           />
           
-          <p className="mt-6 text-sm font-semibold text-white sm:text-base">
+          <p className="mt-6 font-semibold text-white">
             © 2026 Compassion International. All Rights Reserved.
           </p>
           
-          <nav aria-label="Legal" className="mt-5 flex flex-wrap gap-x-4 gap-y-3 text-sm font-semibold text-white sm:text-base">
-            <a href="#" className="transition-colors hover:text-yellow-300">Privacy Statement</a>
-            <a href="#" className="transition-colors hover:text-yellow-300">Conditions of Use</a>
-            <a href="#" className="transition-colors hover:text-yellow-300">Disclosure Statement</a>
-            <a href="#" className="transition-colors hover:text-yellow-300">Policies &amp; Standards</a>
-            <a href="#" className="transition-colors hover:text-yellow-300">Cookie Preferences</a>
+          <nav aria-label="Legal" className="mt-5 flex flex-wrap gap-x-4 gap-y-3 font-semibold text-white">
+            <a href="/privacy-policy" className="transition-colors hover:text-yellow-300">Privacy Statement</a>
+            <a href="/conditions-of-use" className="transition-colors hover:text-yellow-300">Conditions of Use</a>
+            <a href="/about/disclosure-statement" className="transition-colors hover:text-yellow-300">Disclosure Statement</a>
+            <a href="/about/critical-policies-standards" className="transition-colors hover:text-yellow-300">Policies &amp; Standards</a>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+              className="cursor-pointer transition-colors hover:text-yellow-300"
+            >
+              Cookie Preferences
+            </button>
           </nav>
 
         </div>

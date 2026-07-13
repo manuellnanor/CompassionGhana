@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Comic_Neue } from "next/font/google";
+import { Comic_Neue, Poppins } from "next/font/google";
 import type { ReactNode } from "react";
 import "../index.css";
 
@@ -7,6 +7,13 @@ const comicNeue = Comic_Neue({
   weight: ["700"],
   subsets: ["latin"],
   variable: "--font-hand",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -65,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GH">
-      <body className={comicNeue.variable}>{children}</body>
+      <body className={`${comicNeue.variable} ${poppins.variable}`}>{children}</body>
     </html>
   );
 }
