@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Segoe UI", "Arial", sans-serif;
   --font-title: "Georgia", "Times New Roman", serif;
   --font-hand: "Comic Sans MS", cursive;
@@ -19,10 +19,16 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
   color: rgb(33, 41, 59);
   font-size: 16px;
+  line-height: 26px;
+}
+
+body p {
+  font-family: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 16px !important;
   line-height: 26px;
 }
 
@@ -42,6 +48,11 @@ body {
   .footer-poppins {
     font-family: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif;
     font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-poppins p {
+    font-size: 14px !important;
     line-height: 1.6;
   }
 
