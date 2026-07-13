@@ -3,7 +3,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Phone, Mail, Facebook, Twitter, Instagram, Heart, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-const compassionLogo = '/assets/logo-header.png';
+const compassionLogo = '/assets/logo-compassion-white.svg';
 
 interface HeaderProps {
   onOpenDonate: () => void;
@@ -176,7 +176,7 @@ export default function Header({ onOpenDonate }: HeaderProps) {
             <img
               src={compassionLogo}
               alt="Compassion International Ghana"
-              className="h-11 w-auto object-contain transition-transform group-hover:scale-105 sm:h-14"
+              className="h-11 w-auto object-contain brightness-0 invert transition-transform group-hover:scale-105 sm:h-14"
             />
             {/* Compassion custom SVG logo icon */}
             <div className="hidden relative w-10 h-10 bg-white rounded-full items-center justify-center shadow-md p-1 group-hover:scale-105 transition-transform">
