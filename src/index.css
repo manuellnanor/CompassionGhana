@@ -309,6 +309,233 @@ body p {
     text-underline-offset: 4px;
   }
 
+  .ConsentBanner--drawer {
+    inset: 0;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    background: transparent;
+  }
+
+  .ConsentBanner__backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    border: 0;
+    background: rgba(2, 10, 34, 0.72);
+    animation: consent-backdrop-in 220ms ease-out both;
+  }
+
+  .ConsentBanner--drawer .ConsentBanner__drawerPanel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(100%, 37.5rem);
+    max-width: 37.5rem;
+    height: 100dvh;
+    margin: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: white;
+    padding: 0;
+    box-shadow: 18px 0 60px rgba(0, 17, 36, 0.3);
+    backdrop-filter: none;
+    animation: consent-drawer-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ConsentBanner__drawerHeader {
+    display: flex;
+    min-height: 4.75rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 232, 240);
+    padding: 1rem 1.75rem;
+  }
+
+  .ConsentBanner__drawerHeader img {
+    width: 9rem;
+    height: auto;
+  }
+
+  .ConsentBanner__drawerHeader button {
+    display: flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgb(51, 65, 85);
+    font-size: 1.75rem;
+    line-height: 1;
+    transition: background-color 160ms ease;
+  }
+
+  .ConsentBanner__drawerHeader button:hover {
+    background: rgb(241, 245, 249);
+  }
+
+  .ConsentBanner__drawerBody {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 1.5rem 1.9rem 2rem;
+  }
+
+  .ConsentBanner__drawerBody .ConsentBanner__title {
+    color: rgb(51, 65, 85);
+    font-family: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .ConsentBanner__drawerBody .ConsentBanner__description {
+    margin-top: 0.75rem;
+    color: rgb(71, 85, 105);
+    line-height: 1.55;
+  }
+
+  .ConsentBanner__drawerBody .ConsentBanner__policyLink {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .ConsentBanner__settingsTitle {
+    margin: 2.25rem 0 1.25rem;
+    color: rgb(51, 65, 85);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .ConsentBanner__drawerSettings {
+    overflow: hidden;
+    border: 1px solid rgb(203, 213, 225);
+    border-radius: 0.25rem;
+  }
+
+  .ConsentBanner__drawerSetting {
+    display: flex;
+    min-height: 4.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    color: rgb(51, 65, 85);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .ConsentBanner__drawerSetting + .ConsentBanner__drawerSetting {
+    border-top: 1px solid rgb(203, 213, 225);
+  }
+
+  .ConsentBanner__settingName {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ConsentBanner__settingName > span {
+    color: rgb(30, 64, 88);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .ConsentBanner__drawerSetting strong {
+    flex: 0 0 auto;
+    color: #2a5eec;
+    font-size: 0.9rem;
+  }
+
+  .ConsentBanner__toggle {
+    position: relative;
+    width: 3.25rem;
+    height: 1.8rem;
+    flex: 0 0 auto;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 999px;
+    background: rgb(203, 213, 225);
+    transition: background-color 180ms ease;
+  }
+
+  .ConsentBanner__toggle::before {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 999px;
+    background: white;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.25);
+    content: "";
+    transition: transform 180ms ease;
+  }
+
+  .ConsentBanner__toggle:checked {
+    background: #2a5eec;
+  }
+
+  .ConsentBanner__toggle:checked::before {
+    transform: translateX(1.45rem);
+  }
+
+  .ConsentBanner__toggle:focus-visible {
+    outline: 3px solid rgba(42, 94, 236, 0.3);
+    outline-offset: 2px;
+  }
+
+  .ConsentBanner__drawerFooter {
+    flex: 0 0 auto;
+    border-top: 1px solid rgb(203, 213, 225);
+    background: white;
+    padding: 1.5rem 1.9rem;
+  }
+
+  .ConsentBanner__confirmButton {
+    min-width: 16.5rem;
+    cursor: pointer;
+    border: 1px solid #0069c9;
+    border-radius: 0.15rem;
+    background: #0069c9;
+    padding: 0.85rem 1.5rem;
+    color: white;
+    font-family: var(--font-poppins), "Poppins", ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 160ms ease;
+  }
+
+  .ConsentBanner__confirmButton:hover {
+    background: #0058aa;
+  }
+
+  @keyframes consent-drawer-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  @keyframes consent-backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ConsentBanner__backdrop,
+    .ConsentBanner--drawer .ConsentBanner__drawerPanel {
+      animation-duration: 1ms;
+    }
+  }
+
   @media (min-width: 768px) {
     .ConsentBanner {
       padding: 1.5rem;
