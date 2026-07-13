@@ -9,13 +9,24 @@ interface HeaderProps {
   onOpenDonate: () => void;
 }
 
+const getActiveSectionForPath = (pathname: string) => {
+  if (pathname === '/') return 'home';
+  if (pathname === '/about') return 'about-us';
+  if (pathname === '/leaders') return 'leadership';
+  if (pathname === '/church-partners') return 'partners';
+  if (pathname === '/programs-and-interventions') return 'work';
+  if (pathname === '/reports') return 'reports';
+  if (pathname === '/contact') return 'footer';
+  return '';
+};
+
 export default function Header({ onOpenDonate }: HeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const activeSection = getActiveSectionForPath(pathname);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   // Mobile sub-menu toggles
@@ -30,52 +41,6 @@ export default function Header({ onOpenDonate }: HeaderProps) {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
-
-  useEffect(() => {
-    if (!isHomePage) {
-      setActiveSection(
-        pathname === '/about'
-          ? 'about-us'
-          : pathname === '/leaders'
-            ? 'leadership'
-          : pathname === '/church-partners'
-            ? 'partners'
-          : pathname === '/contact'
-            ? 'footer'
-            : pathname === '/programs-and-interventions'
-              ? 'work'
-              : pathname === '/reports'
-                ? 'reports'
-                : 'home'
-      );
-      return;
-    }
-
-    const handleScrollSpy = () => {
-      const sections = ['home', 'about-us', 'interventions', 'faq', 'footer'];
-      
-      if (window.scrollY < 120) {
-        setActiveSection('home');
-        return;
-      }
-
-      let currentSection = 'home';
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 200) {
-            currentSection = section;
-          }
-        }
-      }
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScrollSpy);
-    handleScrollSpy();
-    return () => window.removeEventListener('scroll', handleScrollSpy);
-  }, [isHomePage, pathname]);
 
   const goHome = () => {
     setIsMobileMenuOpen(false);
@@ -105,8 +70,8 @@ export default function Header({ onOpenDonate }: HeaderProps) {
 
   const isParentActive = (parent: string) => {
     if (parent === 'about' && (activeSection === 'about-us' || activeSection === 'leadership' || activeSection === 'partners')) return true;
-    if (parent === 'work' && (activeSection === 'work' || activeSection === 'interventions')) return true;
-    if (parent === 'resources' && (activeSection === 'reports' || activeSection === 'faq' || activeSection === 'video-section')) return true;
+    if (parent === 'work' && activeSection === 'work') return true;
+    if (parent === 'resources' && activeSection === 'reports') return true;
     return false;
   };
 
