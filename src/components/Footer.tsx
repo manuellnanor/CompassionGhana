@@ -163,7 +163,7 @@ export default function Footer({ onOpenDonate }: FooterProps) {
             © 2026 Compassion International. All Rights Reserved.
           </p>
           
-          <nav aria-label="Legal" className="mt-5 flex flex-wrap gap-x-4 gap-y-3 font-semibold text-white">
+          <nav aria-label="Legal" className="mt-5 flex flex-wrap gap-x-4 gap-y-3 font-normal text-white">
             <a href="/privacy-policy" className="transition-colors hover:text-yellow-300">Privacy Statement</a>
             <a href="/conditions-of-use" className="transition-colors hover:text-yellow-300">Conditions of Use</a>
             <a href="/about/disclosure-statement" className="transition-colors hover:text-yellow-300">Disclosure Statement</a>
